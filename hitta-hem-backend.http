@@ -1,6 +1,8 @@
 @hitta_hem_backend_HostAddress = http://localhost:5171
 
-GET {{hitta_hem_backend_HostAddress}}/weatherforecast/
+GET http://localhost:5171/api/dogs
 Accept: application/json
 
 ###
+GET http://localhost:5171/api/dogs/1
+Accept: application/json
