@@ -4,5 +4,11 @@ GET http://localhost:5171/api/dogs
 Accept: application/json
 
 ###
-GET http://localhost:5171/api/dogs/1
+GET http://localhost:5171/api/dogs/3
+Accept: application/json
+
+
+###
+
+DELETE http://localhost:5171/api/dogs/13
 Accept: application/json

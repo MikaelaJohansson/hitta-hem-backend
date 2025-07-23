@@ -5,7 +5,6 @@ namespace HittaHem.Services;
 public static class DogService
 {
     static List<Dog> Dogs { get; }
-    static int nextId = 3;
 
     static DogService()
     {
@@ -291,4 +290,71 @@ public static class DogService
     {
         return Dogs.FirstOrDefault(d => d.Id == id);
     }
+
+
+    private static int nextId = 14;
+
+    public static void Add(Dog dog)
+    {
+        dog.Id = nextId++;
+        Dogs.Add(dog);
+    }
+
+    public static Dog CreateDogFromUpload(DogUploadDto dto, IFormFile imageFile)
+    {
+        var allowedTypes = new[] { "image/jpeg", "image/png" };
+        if (!allowedTypes.Contains(imageFile.ContentType))
+            throw new Exception("Endast .jpg och .png tillåts.");
+
+        using var ms = new MemoryStream();
+        imageFile.CopyTo(ms);
+        var imageBytes = ms.ToArray();
+
+        return new Dog
+        {
+            Name = dto.Name,
+            Age = dto.Age,
+            Sex = dto.Sex,
+            Breed = dto.Breed,
+            Description = dto.Description,
+            ImageUrl = $"data:{imageFile.ContentType};base64,{Convert.ToBase64String(imageBytes)}"
+        };
+    }
+
+    public static Dog? Update(int id, DogUploadDto dto, IFormFile? imageFile)
+    {
+        var existingDog = Dogs.FirstOrDefault(d => d.Id == id);
+        if (existingDog == null) return null;
+
+        existingDog.Name = dto.Name;
+        existingDog.Age = dto.Age;
+        existingDog.Sex = dto.Sex;
+        existingDog.Breed = dto.Breed;
+        existingDog.Description = dto.Description;
+
+        if (imageFile != null)
+        {
+            var allowedTypes = new[] { "image/jpeg", "image/png" };
+            if (!allowedTypes.Contains(imageFile.ContentType))
+                throw new Exception("Endast .jpg och .png tillåts.");
+
+            using var ms = new MemoryStream();
+            imageFile.CopyTo(ms);
+            var imageBytes = ms.ToArray();
+
+            existingDog.ImageUrl = $"data:{imageFile.ContentType};base64,{Convert.ToBase64String(imageBytes)}";
+        }
+
+        return existingDog;
+    }
+
+    public static bool Delete(int id)
+    {
+        var dog = Dogs.FirstOrDefault(d => d.Id == id);
+        if (dog == null) return false;
+
+        Dogs.Remove(dog);
+        return true;
+    }
+
 }
