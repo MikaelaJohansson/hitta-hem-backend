@@ -14,7 +14,9 @@ app.UseCors(policy =>
 app.UseStaticFiles();
 app.MapControllers();
 
+
 app.Run();
+
 
 
 

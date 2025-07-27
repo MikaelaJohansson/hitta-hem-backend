@@ -284,20 +284,19 @@ public static class DogService
 
     }
 
-    public static List<Dog> GetAll() => Dogs;
-
-    public static Dog? GetById(int id)
-    {
-        return Dogs.FirstOrDefault(d => d.Id == id);
-    }
-
-
     private static int nextId = 14;
 
     public static void Add(Dog dog)
     {
         dog.Id = nextId++;
         Dogs.Add(dog);
+    }
+
+    public static List<Dog> GetAll() => Dogs;
+
+    public static Dog? GetById(int id)
+    {
+        return Dogs.FirstOrDefault(d => d.Id == id);
     }
 
     public static Dog CreateDogFromUpload(DogUploadDto dto, IFormFile imageFile)

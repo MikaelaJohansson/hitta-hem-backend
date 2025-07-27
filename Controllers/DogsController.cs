@@ -11,6 +11,7 @@ public class DogsController : ControllerBase
     [HttpGet]
     public ActionResult<List<Dog>> GetAll() => DogService.GetAll();
 
+
     [HttpGet("{id}")]
     public ActionResult<Dog> GetById(int id)
     {
@@ -19,9 +20,11 @@ public class DogsController : ControllerBase
         return Ok(dog);
     }
 
+
+
     [HttpPost("upload")]
     [RequestSizeLimit(2 * 1024 * 1024)] // Max 2MB
-    public async Task<IActionResult> UploadDog(
+    public IActionResult UploadDog(
         [FromForm] DogUploadDto dogDto,
         IFormFile imageFile)
     {
@@ -41,6 +44,7 @@ public class DogsController : ControllerBase
         }
     }
 
+
     [HttpPut("{id}")]
     public IActionResult Update(int id, [FromForm] DogUploadDto dto, IFormFile? imageFile)
     {
@@ -48,12 +52,25 @@ public class DogsController : ControllerBase
         return updatedDog != null ? Ok(updatedDog) : NotFound();
     }
 
+
+
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
         var removed = DogService.Delete(id);
         return removed ? Ok() : NotFound();
     }
+
+    [HttpPost("interest/{id}")]
+    public IActionResult RegisterInterest(int id)
+    {
+        var dog = DogService.GetById(id);
+        if (dog == null) return NotFound();
+
+        dog.InterestCount++;
+        return Ok(dog.InterestCount);
+    }
+
 
 
 }

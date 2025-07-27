@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("hitta-hem-backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc753eade4ca2a7743fb69a8907a4eceb18e3627")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40b90461c5e07ecb73a17364ea942ef636717114")]
 [assembly: System.Reflection.AssemblyProductAttribute("hitta-hem-backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("hitta-hem-backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
