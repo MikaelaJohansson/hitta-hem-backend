@@ -1,10 +1,11 @@
 services:
   - type: web
     name: hitta-hem-backend
-    runtime: dotnet-6
+    runtime: dotnet-7
     plan: free
     buildCommand: dotnet build
     startCommand: dotnet run
+
 
 
 
