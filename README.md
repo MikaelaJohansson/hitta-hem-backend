@@ -1,8 +1,8 @@
 # HittaHem – Backend API
 
 This is the backend for **HittaHem**, a fullstack web application where users can submit dogs for rehoming or adoption.
-
-This backend is built using the latest version of **.NET 8 / ASP.NET Core Web API** and is connected to the Angular frontend via RESTful endpoints. The project is hosted both locally and on **Azure App Service**.
+This backend is built using the latest version of **.NET 8 / ASP.NET Core Web API** and is connected to the Angular frontend via RESTful endpoints. 
+The project is hosted both locally and on **Azure App Service**.
 
 ---
 
@@ -36,7 +36,7 @@ This backend is built using the latest version of **.NET 8 / ASP.NET Core Web AP
 The backend is hosted at:
 
 ```
-https://hitta-hem-api.azurewebsites.net/api/dogs
+hitta-hem-backend-fdg3h7g0gpfpfpc9.swedencentral-01.azurewebsites.net
 ```
 
 ---
@@ -46,7 +46,7 @@ https://hitta-hem-api.azurewebsites.net/api/dogs
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/hittahem-backend.git
+git clone https://github.com/MikaelaJohansson/hitta-hem-backend.git
 cd hittahem-backend
 ```
 
@@ -155,5 +155,5 @@ Backend developed by **Mikaela Johansson**
 
 ## 📎 Related Repositories
 
-- 🔗 Frontend (Angular): [hittahem-frontend](https://github.com/your-username/hittahem-frontend)
+- 🔗 Frontend (Angular): [hittahem-frontend](https://github.com/MikaelaJohansson/hitta-hem.git)
 

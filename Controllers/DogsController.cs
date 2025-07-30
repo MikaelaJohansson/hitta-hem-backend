@@ -23,7 +23,7 @@ public class DogsController : ControllerBase
 
 
     [HttpPost("upload")]
-    [RequestSizeLimit(2 * 1024 * 1024)] // Max 2MB
+    [RequestSizeLimit(2 * 1024 * 1024)] 
     public IActionResult UploadDog(
         [FromForm] DogUploadDto dogDto,
         IFormFile imageFile)
