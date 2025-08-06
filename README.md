@@ -18,11 +18,22 @@ The project is hosted both locally and on **Azure App Service**.
 
 ---
 
+## 🆕 Latest Update – MySQL Integration
+
+This backend has been updated to use a real **MySQL database** instead of in-memory data.
+
+- Uses `Pomelo.EntityFrameworkCore.MySql` for integration
+- Database configured via `appsettings.json` or Azure App Service settings
+- Includes `SeedData.cs` for initial database population
+- Works locally with MySQL Workbench or PlanetScale
+
+---
+
 ## 🔧 Technologies Used
 
 - ASP.NET Core Web API (.NET 8 or later)
 - C#
-- In-memory data storage (List<Dog>)
+- MySQL database via Entity Framework Core (Pomelo)
 - Controllers and DTOs
 - File upload with `IFormFile`
 - Image encoding (Base64)
@@ -69,22 +80,6 @@ http://localhost:5171/
 - `PUT /api/dogs/{id}` – Update a dog
 - `DELETE /api/dogs/{id}` – Delete a dog
 - `POST /api/dogs/interest/{id}` – Register adoption interest
-
----
-
-## 📁 Folder Structure
-
-```
-HittaHem/
-├── Controllers/
-│   └── DogsController.cs        → All API routes
-├── Models/
-│   └── Dog.cs                   → Dog model
-│   └── DogUploadDto.cs          → DTO for form uploads
-├── Services/
-│   └── DogService.cs            → In-memory data logic
-├── Program.cs                   → CORS + pipeline setup
-```
 
 ---
 
